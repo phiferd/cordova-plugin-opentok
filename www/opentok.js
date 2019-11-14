@@ -512,8 +512,8 @@ TBPublisher = (function() {
     resolution = "640X480";
     insertMode = "replace";
     if (this.properties != null) {
-      width = (_ref = this.properties.width) != null ? _ref : position.width;
-      height = (_ref1 = this.properties.height) != null ? _ref1 : position.height;
+      width = (_ref = this.properties.width) != null ? _ref : this.position.width;
+      height = (_ref1 = this.properties.height) != null ? _ref1 : this.position.height;
       name = (_ref2 = this.properties.name) != null ? _ref2 : "";
       cameraName = (_ref3 = this.properties.cameraName) != null ? _ref3 : "front";
       audioFallbackEnabled = (_ref4 = this.properties.audioFallbackEnabled) != null ? _ref4 : audioFallbackEnabled;
@@ -557,7 +557,7 @@ TBPublisher = (function() {
     }
     this.position = getPosition(this.pubElement);
     OT.getHelper().eventing(this);
-    Cordova.exec(TBSuccess, TBError, OTPlugin, "initPublisher", [name, position.top, position.left, width, height, zIndex, publishAudio, publishVideo, cameraName, ratios.widthRatio, ratios.heightRatio, borderRadius, audioFallbackEnabled, audioBitrate, audioSource, videoSource, frameRate, resolution]);
+    Cordova.exec(TBSuccess, TBError, OTPlugin, "initPublisher", [name, this.position.top, this.position.left, width, height, zIndex, publishAudio, publishVideo, cameraName, ratios.widthRatio, ratios.heightRatio, borderRadius, audioFallbackEnabled, audioBitrate, audioSource, videoSource, frameRate, resolution]);
     Cordova.exec(this.eventReceived, TBSuccess, OTPlugin, "addEvent", ["publisherEvents"]);
   }
 
