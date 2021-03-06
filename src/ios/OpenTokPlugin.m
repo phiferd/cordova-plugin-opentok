@@ -217,6 +217,10 @@
 }
 // Helper function to update Views
 - (void)updateView:(CDVInvokedUrlCommand*)command{
+    // Make the web view transparent.
+    [self.webView setOpaque:false];
+    [self.webView setBackgroundColor:UIColor.clearColor];
+    
     NSString* callback = command.callbackId;
     NSString* sid = [command.arguments objectAtIndex:0];
     CGFloat top = [[command.arguments objectAtIndex:1] floatValue];
